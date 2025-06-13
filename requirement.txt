@@ -8,3 +8,4 @@ groq==0.5.0
 openai
 tqdm
 PyMuPDF  # for resume parsing alternative to pdfplumber
+python-docx
