@@ -17,36 +17,36 @@ class Chain:
 
     def write_mail(self, job, resume_text, project_summary):
         prompt = PromptTemplate.from_template("""
-You are a final-year engineering student applying for the following job role.
+        You are a final-year engineering student applying for the following job role.
 
-### ROLE:
-{job_description}
+        ### ROLE:
+        {job_description}
 
-### RESUME DETAILS:
-{resume_details}
+        ### RESUME DETAILS:
+        {resume_details}
 
-### RELEVANT PROJECTS:
-{link_list}
+        ### RELEVANT PROJECTS:
+        {link_list}
 
-### TASK:
-1. Generate a **professional cold email** with:
-    - Clear greeting
-    - Enthusiastic tone
-    - Skill alignment with the role
-    - Justify why you are a great fit
-    - Include a "Relevant Projects" section
-    - End with "Thanks and Regards"
-    - Keep it within 200 words
+        ### TASK:
+        1. Generate a **professional cold email** with:
+            - Clear greeting
+            - Enthusiastic tone
+            - Skill alignment with the role
+            - Justify why you are a great fit
+            - Include a "Relevant Projects" section
+            - End with "Thanks and Regards"
+            - Keep it within 200 words
 
-2. Also generate a **relevant subject line**.
+        2. Also generate a **relevant subject line**.
 
-Output JSON only with:
-```json
-{{
-  "subject": "...",
-  "email": "..."
-}}
-""")
+        Output JSON only with:
+        ```json
+        {{
+        "subject": "...",
+        "email": "..."
+        }}
+        """)
 
         chain = prompt | self.llm
         input_data = {

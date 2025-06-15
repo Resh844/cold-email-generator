@@ -59,3 +59,13 @@ def match_resume_keywords(resume_text, keywords):
         else:
             missing.append(keyword)
     return matched, missing
+
+
+def is_valid_url(url):
+    import re
+    pattern = re.compile(
+        r'^(https?://)?'                   # optional http or https
+        r'([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}'  # domain like oraclecloud.com
+        r'(/[^\s]*)?$'                     # optional path
+    )
+    return bool(pattern.match(url))
